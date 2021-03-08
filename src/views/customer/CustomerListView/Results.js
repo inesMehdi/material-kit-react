@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
-  Avatar,
   Box,
   Card,
   Checkbox,
@@ -17,7 +16,6 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import getInitials from 'src/utils/getInitials';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -94,19 +92,31 @@ const Results = ({ className, customers, ...rest }) => {
                   />
                 </TableCell>
                 <TableCell>
-                  Name
+                  Hospital
                 </TableCell>
                 <TableCell>
-                  Email
+                  Patient
+                </TableCell>
+                <TableCell>
+                  Number Of Packets
+                </TableCell>
+                <TableCell>
+                  Total Income(DT)
                 </TableCell>
                 <TableCell>
                   Location
                 </TableCell>
                 <TableCell>
-                  Phone
+                  Date
                 </TableCell>
                 <TableCell>
-                  Registration date
+                  Time Passed(hours)
+                </TableCell>
+                <TableCell>
+                  Total Reports
+                </TableCell>
+                <TableCell>
+                  Status
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -129,31 +139,37 @@ const Results = ({ className, customers, ...rest }) => {
                       alignItems="center"
                       display="flex"
                     >
-                      <Avatar
-                        className={classes.avatar}
-                        src={customer.avatarUrl}
-                      >
-                        {getInitials(customer.name)}
-                      </Avatar>
                       <Typography
                         color="textPrimary"
                         variant="body1"
                       >
-                        {customer.name}
+                        {customer.hospitalName}
                       </Typography>
                     </Box>
                   </TableCell>
                   <TableCell>
-                    {customer.email}
+                    {customer.patient}
                   </TableCell>
                   <TableCell>
-                    {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
+                    {customer.nbPackets}
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    {customer.totalIncome}
+                  </TableCell>
+                  <TableCell>
+                    {customer.country}
                   </TableCell>
                   <TableCell>
                     {moment(customer.createdAt).format('DD/MM/YYYY')}
+                  </TableCell>
+                  <TableCell>
+                    {customer.timePassed}
+                  </TableCell>
+                  <TableCell>
+                    {customer.totalReports}
+                  </TableCell>
+                  <TableCell>
+                    {customer.status}
                   </TableCell>
                 </TableRow>
               ))}

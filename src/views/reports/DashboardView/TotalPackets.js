@@ -23,25 +23,26 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const TrafficByDevice = ({ className, ...rest }) => {
+const TotalPackets = ({ className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
 
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [30, 30, 40, 0],
         backgroundColor: [
           colors.indigo[500],
           colors.red[600],
-          colors.orange[600]
+          colors.orange[600],
+          colors.green[600]
         ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['SCANNER', 'RADIO', 'IRM', 'MAMO']
   };
 
   const options = {
@@ -68,22 +69,28 @@ const TrafficByDevice = ({ className, ...rest }) => {
 
   const devices = [
     {
-      title: 'Desktop',
-      value: 63,
+      title: 'SCANNER',
+      value: 30,
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
-      title: 'Tablet',
-      value: 15,
+      title: 'RADIO',
+      value: 30,
       icon: TabletIcon,
       color: colors.red[600]
     },
     {
-      title: 'Mobile',
-      value: 23,
+      title: 'IRM',
+      value: 40,
       icon: PhoneIcon,
       color: colors.orange[600]
+    },
+    {
+      title: 'MAMO',
+      value: 0,
+      icon: PhoneIcon,
+      color: colors.green[600]
     }
   ];
 
@@ -92,7 +99,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Total Packets" />
       <Divider />
       <CardContent>
         <Box
@@ -142,8 +149,8 @@ const TrafficByDevice = ({ className, ...rest }) => {
   );
 };
 
-TrafficByDevice.propTypes = {
+TotalPackets.propTypes = {
   className: PropTypes.string
 };
 
-export default TrafficByDevice;
+export default TotalPackets;

@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
-  Avatar,
   Box,
   Card,
   CardContent,
@@ -12,7 +11,6 @@ import {
   makeStyles,
   colors
 } from '@material-ui/core';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -45,24 +43,100 @@ const TasksProgress = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TASKS PROGRESS
+              Scanner
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              75.5%
+              30%
             </Typography>
-          </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <InsertChartIcon />
-            </Avatar>
           </Grid>
         </Grid>
         <Box mt={3}>
           <LinearProgress
-            value={75.5}
+            value={30.0}
+            variant="determinate"
+          />
+        </Box>
+        <Grid
+          container
+          justify="space-between"
+          spacing={3}
+        >
+          <Grid item>
+            <Typography
+              color="textSecondary"
+              gutterBottom
+              variant="h6"
+            >
+              IRM
+            </Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              40%
+            </Typography>
+          </Grid>
+        </Grid>
+        <Box mt={3}>
+          <LinearProgress
+            value={40.0}
+            variant="determinate"
+          />
+        </Box>
+        <Grid
+          container
+          justify="space-between"
+          spacing={3}
+        >
+          <Grid item>
+            <Typography
+              color="textSecondary"
+              gutterBottom
+              variant="h6"
+            >
+              RADIO
+            </Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              30%
+            </Typography>
+          </Grid>
+        </Grid>
+        <Box mt={3}>
+          <LinearProgress
+            value={30.0}
+            variant="determinate"
+          />
+        </Box>
+        <Grid
+          container
+          justify="space-between"
+          spacing={3}
+        >
+          <Grid item>
+            <Typography
+              color="textSecondary"
+              gutterBottom
+              variant="h6"
+            >
+              Mamo
+            </Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              0%
+            </Typography>
+          </Grid>
+        </Grid>
+        <Box mt={3}>
+          <LinearProgress
+            value={0.0}
             variant="determinate"
           />
         </Box>
